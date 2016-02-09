@@ -1,0 +1,7 @@
+name: leto
+type: module
+description: Layout for the page
+core: 8.x
+package: Custom
+dependencies:
+  - system
