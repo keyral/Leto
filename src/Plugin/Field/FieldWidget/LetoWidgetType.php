@@ -23,15 +23,6 @@ use Drupal\Core\Form\FormStateInterface;
  * )
  */
 class LetoWidgetType extends WidgetBase {
-  /**
-   * {@inheritdoc}
-   */
-  public static function defaultSettings() {
-    return array(
-      'size' => 60,
-      'placeholder' => '',
-    ) + parent::defaultSettings();
-  }
 
   /**
    * {@inheritdoc}

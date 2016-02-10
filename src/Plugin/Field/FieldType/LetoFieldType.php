@@ -21,7 +21,11 @@ use Drupal\Core\TypedData\DataDefinition;
  * @FieldType(
  *   id = "leto_field_type",
  *   label = @Translation("Leto field type"),
- *   description = @Translation("My Field Type") * )
+ *   description = @Translation("Leto Field"),
+ *   category = @Translation("Reference"),
+ *   default_widget = "leto_widget_type",
+ *   default_formatter = "leto_widget_type",
+ * )
  */
 class LetoFieldType extends FieldItemBase {
     /**
