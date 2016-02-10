@@ -1,24 +1,2 @@
 <?php
 
-/**
- * @file
- * Contains leto.module..
- */
-
-use Drupal\Core\Routing\RouteMatchInterface;
-
-/**
- * Implements hook_help().
- */
-function leto_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    // Main module help for the leto module.
-    case 'help.page.leto':
-      $output = '';
-      $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Layout for the page') . '</p>';
-      return $output;
-
-    default:
-  }
-}
