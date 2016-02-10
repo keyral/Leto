@@ -1,0 +1,4 @@
+services:
+  plugin.manager.leto_contenaire:
+    class: Drupal\leto\LetoContenaireManager
+    arguments: ['@module_handler', '@cache.discovery']

@@ -1,0 +1,17 @@
+contenaire1Col:
+  label: 1 Colonne
+  colonnes: 1
+  library: ~
+  template: contenaire1Col
+
+contenaire2Col:
+  label: 2 Colonne
+  colonnes: 2
+  library: ~
+  template: contenaire2Col
+
+contenaire3Col:
+  label: 3 Colonne
+  colonnes: 3
+  library: ~
+  template: contenaire3Col
