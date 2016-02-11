@@ -1,2 +1,20 @@
 <?php
 
+/**
+ * Implements hook_theme().
+ */
+function leto_theme($existing, $type, $theme, $path)
+{
+    $theme = [];
+
+    $theme['leto_preview'] = [
+        'variables' => [
+            'elements' => NULL,
+        ],
+    ];
+    $theme['leto_render_admin'] = [
+        'render element' => 'form',
+    ];
+
+    return $theme;
+}

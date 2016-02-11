@@ -1,0 +1,13 @@
+
+{% if elements is not empty %}
+    <div class="preview-contenaire">
+        {% for colonne in elements %}
+            <div class="col">
+                {% for element in colonne %}
+                    { element }
+                {% endfor %}
+
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

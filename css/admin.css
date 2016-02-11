@@ -1,0 +1,26 @@
+
+
+.preview-contenaire {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.collum {
+    flex: 1 0 25%;
+    min-width: 200px;
+    padding: 1px;
+    overflow: hidden;
+    border: 2px dashed black;
+    margin-right:2px;
+}
+
+.leto-add_more {
+    float:right;
+}
+.wrapper-leto-admin{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+.filter-wrapper .leto-add_more{
+    float:right;
+}
