@@ -1,0 +1,14 @@
+leto.admin:
+  version: VERSION
+  css:
+    layout:
+      css/admin.css: {}
+  js:
+    js/admin.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.ui.sortable
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupalSettings
+    - core/drupal.form
