@@ -135,4 +135,12 @@ class LetoFieldType extends FieldItemBase {
         return $elements;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function preSave()
+    {
+        parent::preSave();
+    }
+
 }

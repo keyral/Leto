@@ -74,7 +74,12 @@ class LetoWidgetType extends WidgetBase
     {
         $elements = [];
         $item = $items[$delta];
+        $debug = 1;
 
+        $elements['lid'] = [
+            '#type' => 'value',
+            '#default_value' => $item->get('target_id') ? $item->get('target_id')->getCastedValue() : '',
+        ];
 
         $elements['layout'] = [
             '#type' => 'select',
@@ -109,7 +114,11 @@ class LetoWidgetType extends WidgetBase
             ],
         ];
 
+        $elements['content'] = array(
+            '#type' => 'textarea',
+            '#title' => 'content',
 
+        );
 
         $elements['preview'] = array(
             '#type' => 'textfield',

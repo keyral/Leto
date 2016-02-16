@@ -29,102 +29,56 @@ use Drupal\user\UserInterface;
  *     "content" = "content",
  *     "layout" = "layout",
  *   },
- *   links = {
- *     "canonical" = "/admin/structure/layout_entity/{layout_entity}",
- *     "add-form" = "/admin/structure/layout_entity/add",
- *     "edit-form" = "/admin/structure/layout_entity/{layout_entity}/edit",
- *     "delete-form" = "/admin/structure/layout_entity/{layout_entity}/delete",
- *     "collection" = "/admin/structure/layout_entity",
- *   },
- *   field_ui_base_route = "layout_entity.settings"
  * )
  */
-class LayoutEntity extends ContentEntityBase implements LayoutEntityInterface {
+class LayoutEntity extends ContentEntityBase {
   use EntityChangedTrait;
   /**
    * {@inheritdoc}
    */
   public static function preCreate(EntityStorageInterface $storage_controller, array &$values) {
     parent::preCreate($storage_controller, $values);
-    $values += array(
-      'user_id' => \Drupal::currentUser()->id(),
-    );
   }
 
   /**
    * {@inheritdoc}
    */
-  public function getName() {
-    return $this->get('name')->value;
+  public function getContent() {
+    return $this->get('content')->value;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function setName($name) {
-    $this->set('name', $name);
+  public function setContent($content) {
+    $this->set('content', $content);
     return $this;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function getCreatedTime() {
-    return $this->get('created')->value;
+  public function getLid() {
+    return $this->get('lid')->value;
+  }
+
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getLayout() {
+    return $this->get('layout')->value;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function setCreatedTime($timestamp) {
-    $this->set('created', $timestamp);
+  public function setLayout($layout) {
+    $this->set('layout', $layout);
     return $this;
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwner() {
-    return $this->get('user_id')->entity;
-  }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwnerId() {
-    return $this->get('user_id')->target_id;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwnerId($uid) {
-    $this->set('user_id', $uid);
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwner(UserInterface $account) {
-    $this->set('user_id', $account->id());
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function isPublished() {
-    return (bool) $this->getEntityKey('status');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setPublished($published) {
-    $this->set('status', $published ? NODE_PUBLISHED : NODE_NOT_PUBLISHED);
-    return $this;
-  }
 
   /**
    * {@inheritdoc}
@@ -135,18 +89,15 @@ class LayoutEntity extends ContentEntityBase implements LayoutEntityInterface {
       ->setDescription(t('The ID of the Layout entity entity.'))
       ->setReadOnly(TRUE);
 
-    $fields['content'] = BaseFieldDefinition::create('blob:big')
+    $fields['content'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Content'))
-      ->setDescription(t('Reference and information for content'))
-      ->setSettings(array(
-        'max_length' => 50,
-        'text_processing' => 0,
-      ));
+      ->setDescription(t('Reference and information for content'));
 
     $fields['layout'] = BaseFieldDefinition::create('string')
         ->setLabel(t('Machine Name Layout'))
-        ->setDescription(t('The machine name for layout.'))
-        ->setComputed(TRUE);
+        ->setRequired(TRUE)
+        ->setSetting('max_length', 255)
+        ->setDisplayConfigurable('form', TRUE);
 
     return $fields;
   }
