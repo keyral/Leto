@@ -1,0 +1,12 @@
+leto.layout_entity.*:
+  type: config_entity
+  label: 'Layout entity config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

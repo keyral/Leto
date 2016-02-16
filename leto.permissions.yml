@@ -1,0 +1,19 @@
+add layout entity entities:
+  title: 'Create new Layout entity entities'
+
+administer layout entity entities:
+  title: 'Administer Layout entity entities'
+  description: 'Allow to access the administration form to configure Layout entity entities.'
+  restrict access: true
+
+delete layout entity entities:
+  title: 'Delete Layout entity entities'
+
+edit layout entity entities:
+  title: 'Edit Layout entity entities'
+
+view published layout entity entities:
+  title: 'View published Layout entity entities'
+
+view unpublished layout entity entities:
+  title: 'View unpublished Layout entity entities'
